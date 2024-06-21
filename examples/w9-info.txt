@@ -1,0 +1,15 @@
+1. personal info
+john smith
+222 Victory St, 125
+San Francisco, CA, 94111
+social security number: 123456789
+employer id number: 123456789
+
+2. business info
+BOTMAKERS, LLC - C corporation, has foreign partners
+exemptions: none
+account numbers: 1234567890, 0987654321
+
+3. requester
+jane smith
+87 Independence St
