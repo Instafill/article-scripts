@@ -29,6 +29,7 @@ def extract_pdf_fields(pdf_bytes: bytes) -> list[dict]:
             for widget in widget_list:
                 form_fields.append({
                     'name': widget.field_name,
+                    'label': widget.field_label,
                     'type': widget.field_type_string,
                     'max_length': widget.text_maxlen
                 })
