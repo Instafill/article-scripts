@@ -7,3 +7,6 @@ Run the following commands to test locally:
 - `myenv/Scripts/activate`
 - `pip install -r requirements.txt`
 - `python script.py`
+
+
+Read more about our AI Form Filler here https://www.perplexity.ai/page/instafill-ai-purpose-and-benef-625gJD07TXen.XuRnebdyQ.
