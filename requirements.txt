@@ -1,2 +1,4 @@
 pymupdf==1.24.5
 openai==1.35.3
+pymongo==4.6.3
+requests==2.31.0
