@@ -37,7 +37,8 @@ async def main(web_page: str):
     update_document(AUDITS, public_page_id, {"content_id": ObjectId(content_id)})
     update_document(CONTENT, ObjectId(content_id), {"is_public_page": True})
 
-    generate_public_page_suggestions(content_id)
+    generate_rewrite_suggestions(content_id)
+    generate_expand_suggestions(content_id)
     print(f"{web_page}: generated suggestions")
     intro = generate_public_page_intro(str(public_page_id))
 
@@ -113,7 +114,7 @@ def create_public_page_content(domain: str, web_page: str):
         print(f"An error occurred: {e}")
         return None
 
-def generate_public_page_suggestions(content_id: str):
+def generate_rewrite_suggestions(content_id: str):
     try:
 
         suggestion_types = find_documents(SYSTEM_SUGGESTION_TYPES, {"enabled": True})
@@ -124,7 +125,30 @@ def generate_public_page_suggestions(content_id: str):
             }
         payload = {
             "positive_ids": positive_ids,
-            "instructions": "Generate 8-9 suggestions"
+            "instructions": "Generate 4-5 suggestions"
+        }
+        
+        response = requests.post(f"{PYTHON_API_BASE_URL}/content/{content_id}/generate-suggestions", json=payload, headers=headers)
+        response.raise_for_status()
+        
+        response_data = response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
+
+def generate_expand_suggestions(content_id: str):
+    try:
+
+        suggestion_types = find_documents(SYSTEM_SUGGESTION_TYPES, {"enabled": True})
+        positive_ids = [str(t['_id']) for t in suggestion_types]
+        headers = {
+            "Authorization": f"Bearer {ACCESS_TOKEN}",
+            "Content-Type": "application/json" 
+            }
+        payload = {
+            "positive_ids": positive_ids,
+            "instructions": "Generate 4-5 suggestions",
+            "job": "upgenerate",
+            "modification_type": "Insert into Specific Section"
         }
         
         response = requests.post(f"{PYTHON_API_BASE_URL}/content/{content_id}/generate-suggestions", json=payload, headers=headers)
