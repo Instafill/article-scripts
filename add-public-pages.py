@@ -94,6 +94,7 @@ def create_public_page_content(domain: str, web_page: str):
         payload = {
             "site": domain,
             "web_page": web_page,
+            "is_public_page": True
         }
         headers = {
             "Authorization": f"Bearer {ACCESS_TOKEN}",
