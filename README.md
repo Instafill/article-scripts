@@ -123,6 +123,9 @@ Whether you send 1 form or 1,000, Instafill.ai adapts to your process, fills eve
 
 [Filling out W-2 PDF form with AI](https://www.perplexity.ai/page/efficient-ai-solutions-for-w-2-Pue_CK.ETLu9Egt.kGOpBQ)
 
+### Links
+[Instafill.ai's LinkTree](https://linktr.ee/instafill)
+
 -------------------------
 
 Prerequisites:
